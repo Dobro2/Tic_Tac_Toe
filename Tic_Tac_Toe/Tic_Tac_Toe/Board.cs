@@ -30,6 +30,38 @@ namespace Tic_Tac_Toe
                 }
             }
         }
+        public void detectHit(Point loc)
+        {
+            int x = 0;
+            int y = 0;
+
+            if (loc.X<167)
+            {
+                x = 0;
+            }
+            else if (loc.X>167 && loc.X<334)
+            {
+                x = 1;
+            }
+            else if(loc.X>334)
+            {
+                x = 2;
+            }
+            if (loc.Y < 167)
+            {
+                y = 0;
+            }
+            else if (loc.Y > 167 && loc.Y < 334)
+            {
+                y = 1;
+            }
+            else if (loc.Y > 334 && loc.Y<500)
+            {
+                y = 2;
+            }
+            MessageBox.Show(x.ToString(), y.ToString());
+        }
+
     }
      class Holder
     {
