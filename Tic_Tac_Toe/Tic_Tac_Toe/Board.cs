@@ -10,6 +10,8 @@ namespace Tic_Tac_Toe
 {
     class Board
     {
+        public int movesMade = 0;
+
         private Rectangle[,] slots = new Rectangle[3, 3];
         private Holder[,] holders = new Holder[3,3];
 
@@ -32,34 +34,48 @@ namespace Tic_Tac_Toe
         }
         public void detectHit(Point loc)
         {
-            int x = 0;
-            int y = 0;
+            if (loc.Y <= 500)
+            {
+                int x = 0;
+                int y = 0;
 
-            if (loc.X<167)
-            {
-                x = 0;
+                if (loc.X < 167)
+                {
+                    x = 0;
+                }
+                else if (loc.X > 167 && loc.X < 334)
+                {
+                    x = 1;
+                }
+                else if (loc.X > 334)
+                {
+                    x = 2;
+                }
+                if (loc.Y < 167)
+                {
+                    y = 0;
+                }
+                else if (loc.Y > 167 && loc.Y < 334)
+                {
+                    y = 1;
+                }
+                else if (loc.Y > 334 && loc.Y < 500)
+                {
+                    y = 2;
+                }
+                movesMade++;
+
+                if (movesMade % 2 == 0)
+                {
+                    GFX.drawX(new Point(x, y));
+                }
+                else
+                {
+                    GFX.drawO(new Point(x, y));
+
+                }
             }
-            else if (loc.X>167 && loc.X<334)
-            {
-                x = 1;
-            }
-            else if(loc.X>334)
-            {
-                x = 2;
-            }
-            if (loc.Y < 167)
-            {
-                y = 0;
-            }
-            else if (loc.Y > 167 && loc.Y < 334)
-            {
-                y = 1;
-            }
-            else if (loc.Y > 334 && loc.Y<500)
-            {
-                y = 2;
-            }
-            MessageBox.Show(x.ToString(), y.ToString());
+            
         }
 
     }

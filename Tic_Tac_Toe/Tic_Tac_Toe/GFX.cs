@@ -10,7 +10,7 @@ namespace Tic_Tac_Toe
 {
     class GFX
     {
-        private Graphics gObject;
+        private static Graphics gObject;
 
         public GFX(Graphics g)
         {
@@ -32,6 +32,24 @@ namespace Tic_Tac_Toe
             gObject.DrawLine(lines, new Point(0, 334), new Point(500, 334));
 
             gObject.DrawLine(lines, new Point(0, 500), new Point(500, 500));
+        }
+
+        public static void drawX(Point loc)
+        {
+            Pen xPen = new Pen(Color.Peru, 5);
+            int xAbs = loc.X * 167;
+            int yAbs = loc.Y * 167;
+
+            gObject.DrawLine(xPen, xAbs+10, yAbs+10, xAbs + 147, yAbs + 147);
+            gObject.DrawLine(xPen, xAbs + 147, yAbs+10,xAbs+10, yAbs + 147);
+        }
+        public static void drawO(Point loc)
+        {
+            Pen oPen = new Pen(Color.Red,5);
+            int xAbs = loc.X * 167;
+            int yAbs = loc.Y * 167;
+
+            gObject.DrawEllipse(oPen,xAbs +10,yAbs + 10, 147,147);
         }
     }
 }
