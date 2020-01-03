@@ -13,7 +13,7 @@ namespace Tic_Tac_Toe
         public int movesMade = 0;
 
         private Rectangle[,] slots = new Rectangle[3, 3];
-        private Holder[,] holders = new Holder[3,3];
+        private Holder[,] holders = new Holder[3, 3];
 
         public const int X = 0;
         public const int O = 1;
@@ -28,7 +28,7 @@ namespace Tic_Tac_Toe
                     slots[x, y] = new Rectangle(x * 167, y * 167, 167, 167);
                     holders[x, y] = new Holder();
                     holders[x, y].setValue(B);
-                    holders[x, y].setLocation(new Point(x,y));
+                    holders[x, y].setLocation(new Point(x, y));
                 }
             }
         }
@@ -68,37 +68,102 @@ namespace Tic_Tac_Toe
                 if (movesMade % 2 == 0)
                 {
                     GFX.drawX(new Point(x, y));
+                    holders[x, y].setValue(X);
+                    if (detectRow())
+                    {
+                        MessageBox.Show("Brawo, wygrywa X!!");
+                    }
                 }
                 else
                 {
                     GFX.drawO(new Point(x, y));
+                    holders[x, y].setValue(O);
+                    if (detectRow())
+                    {
+                        MessageBox.Show("Wygrana dla O!!");
+                    }
+                }
 
+            }
+        }
+
+        public bool detectRow()
+        {
+            bool isWon = false;
+
+
+            for (int x = 0; x < 3; x++)
+            {
+                if (holders[x, 0].getValue() == X && holders[x, 1].getValue() == X && holders[x, 2].getValue() == X)
+                {
+                    return true;
+                }
+                if (holders[x, 0].getValue() == O && holders[x, 1].getValue() == O && holders[x, 2].getValue() == O)
+                {
+                    return true;
+                }
+
+                switch (x)
+                {
+                    case 0:
+                        if (holders[x, 0].getValue() == X && holders[x + 1, 1].getValue() == X && holders[x + 2, 2].getValue() == X)
+                        {
+                            return true;
+                        }
+                        if (holders[x, 0].getValue() == O && holders[x + 1, 1].getValue() == O && holders[x + 2, 2].getValue() == O)
+                        {
+                            return true;
+                        }
+                        break;
+
+                    case 2:
+                        if (holders[x, 0].getValue() == X && holders[x - 1, 1].getValue() == X && holders[x - 2, 2].getValue() == X)
+                        {
+                            return true;
+                        }
+                        if (holders[x, 0].getValue() == O && holders[x - 1, 1].getValue() == O && holders[x - 2, 2].getValue() == O)
+                        {
+                            return true;
+                        }
+                        break;
+                }
+
+            }
+            for (int y = 0; y < 3; y++)
+            {
+                if (holders[0, y].getValue() == X && holders[1, y].getValue() == X && holders[2, y].getValue() == X)
+                {
+                    return true;
+                }
+                if (holders[0, y].getValue() == O && holders[1, y].getValue() == O && holders[2, y].getValue() == O)
+                {
+                    return true;
                 }
             }
-            
-        }
+            return isWon;
 
-    }
-     class Holder
-    {
-        private Point location;
-        private int value = Board.B;
-        public void setLocation(Point p)
+        }
+        class Holder
+        {
+            private Point location;
+            private int value = Board.B;
+            public void setLocation(Point p)
             {
-            location = p;
+                location = p;
             }
-    public Point getLocation()
-        {
-            return location;
-        }
-        public void setValue(int i)
-        {
-            value = i;
-        }
-        public int getValue()
-        {
-            return value;
-        }
+            public Point getLocation()
+            {
+                return location;
+            }
+            public void setValue(int i)
+            {
+                value = i;
+            }
+            public int getValue()
+            {
+                return value;
+            }
 
         }
+    }
 }
