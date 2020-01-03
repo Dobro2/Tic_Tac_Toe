@@ -23,6 +23,9 @@ namespace Tic_Tac_Toe
         {
             Graphics toPass = panel1.CreateGraphics();
             engine = new GFX(toPass);
+
+            Board theBoard = new Board();
+            theBoard.initBoard();
         }
     }
 }
