@@ -12,6 +12,8 @@ namespace Tic_Tac_Toe
 {
     public partial class Form1 : Form
     {
+        GFX engine;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace Tic_Tac_Toe
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            Graphics toPass = panel1.CreateGraphics();
+            engine = new GFX(toPass);
         }
     }
 }
