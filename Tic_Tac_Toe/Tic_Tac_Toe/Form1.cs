@@ -35,5 +35,27 @@ namespace Tic_Tac_Toe
             mouse = panel1.PointToClient(mouse);
             theBoard.detectHit(mouse);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            theBoard.reset();
+            engine.setUpCanvas();
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void wButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void oButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Projekt gry na zaliczenie przedmiotu");
+        }
     }
 }

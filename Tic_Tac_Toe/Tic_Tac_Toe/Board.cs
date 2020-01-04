@@ -143,6 +143,11 @@ namespace Tic_Tac_Toe
             return isWon;
 
         }
+
+        public void reset()
+        {
+            holders = new Holder[3, 3];
+        }
         class Holder
         {
             private Point location;
