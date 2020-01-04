@@ -110,6 +110,8 @@ namespace Tic_Tac_Toe
 
                 }
 
+
+
             }
         }
 
@@ -173,6 +175,7 @@ namespace Tic_Tac_Toe
         public void reset()
         {
             holders = new Holder[3, 3];
+            initBoard();
         }
         class Holder
         {
