@@ -11,7 +11,9 @@ namespace Tic_Tac_Toe
     class Board
     {
         public int movesMade = 0;
-
+        public int Owins = 0;
+        public int Xwins = 0;
+    
         private Rectangle[,] slots = new Rectangle[3, 3];
         private Holder[,] holders = new Holder[3, 3];
 
@@ -19,6 +21,20 @@ namespace Tic_Tac_Toe
         public const int O = 1;
         public const int B = 2;
 
+        public int playersTurn = X;
+        public int getPlayerForTurn()
+        {
+            return playersTurn;
+        }
+
+        public int getOwins()
+        {
+            return Owins;
+        }
+        public int getXwins()
+        {
+            return Xwins;
+        }
         public void initBoard()
         {
             for (int x = 0; x < 3; x++)
@@ -72,7 +88,12 @@ namespace Tic_Tac_Toe
                     if (detectRow())
                     {
                         MessageBox.Show("Brawo, wygrywa X!!");
+                        Xwins++;
+                        reset();
+                        GFX.setUpCanvas();
                     }
+
+                    playersTurn = O;
                 }
                 else
                 {
@@ -81,7 +102,12 @@ namespace Tic_Tac_Toe
                     if (detectRow())
                     {
                         MessageBox.Show("Wygrana dla O!!");
+                        Owins++;
+                        reset();
+                        GFX.setUpCanvas();
                     }
+                    playersTurn = X;
+
                 }
 
             }

@@ -18,7 +18,7 @@ namespace Tic_Tac_Toe
             setUpCanvas();
         }
 
-        public void setUpCanvas()
+        public static void setUpCanvas()
         {
             Brush bg = new SolidBrush(Color.WhiteSmoke);
             Pen lines = new Pen(Color.Black, 5);

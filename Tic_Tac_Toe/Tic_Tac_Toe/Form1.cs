@@ -12,7 +12,7 @@ namespace Tic_Tac_Toe
 {
     public partial class Form1 : Form
     {
-         GFX engine;
+          GFX engine;
          Board theBoard;
 
         public Form1()
@@ -27,6 +27,8 @@ namespace Tic_Tac_Toe
 
             theBoard = new Board();
             theBoard.initBoard();
+
+            refreshLabel();
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -34,12 +36,14 @@ namespace Tic_Tac_Toe
             Point mouse = Cursor.Position;
             mouse = panel1.PointToClient(mouse);
             theBoard.detectHit(mouse);
+
+            refreshLabel();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             theBoard.reset();
-            engine.setUpCanvas();
+            GFX.setUpCanvas();
 
         }
 
@@ -56,6 +60,24 @@ namespace Tic_Tac_Toe
         private void oButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Projekt gry na zaliczenie przedmiotu");
+        }
+
+        public void refreshLabel()
+        {
+            String newText = "Tura dla:";
+            if (theBoard.getPlayerForTurn() == Board.X)
+            {
+                newText += "X";
+            }
+            else
+            {
+                newText += "O";
+            }
+            newText += "\n";
+            newText += "X wygrał:" + theBoard.getXwins() + "razy\n";
+            newText += "O wygrał:" + theBoard.getOwins() + "razy";
+
+            label1.Text = newText;
         }
     }
 }
