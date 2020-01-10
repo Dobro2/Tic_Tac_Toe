@@ -59,7 +59,7 @@ namespace Tic_Tac_Toe
 
         private void oButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Projekt gry na zaliczenie przedmiotu");
+            MessageBox.Show("Projekt gry w kółko i krzyżyk - ND i MN :)");
         }
 
         public void refreshLabel()
@@ -74,8 +74,8 @@ namespace Tic_Tac_Toe
                 newText += "O";
             }
             newText += "\n";
-            newText += "X wygrał:" + theBoard.getXwins() + "razy\n";
-            newText += "O wygrał:" + theBoard.getOwins() + "razy";
+            newText += "X wygrał:" + theBoard.getXwins() + " razy\n";
+            newText += "O wygrał:" + theBoard.getOwins() + " razy";
 
             label1.Text = newText;
         }

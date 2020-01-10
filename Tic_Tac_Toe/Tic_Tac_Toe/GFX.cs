@@ -36,7 +36,7 @@ namespace Tic_Tac_Toe
 
         public static void drawX(Point loc)
         {
-            Pen xPen = new Pen(Color.Peru, 5);
+            Pen xPen = new Pen(Color.Lime, 5);
             int xAbs = loc.X * 167;
             int yAbs = loc.Y * 167;
 
@@ -45,7 +45,7 @@ namespace Tic_Tac_Toe
         }
         public static void drawO(Point loc)
         {
-            Pen oPen = new Pen(Color.Red,5);
+            Pen oPen = new Pen(Color.MediumVioletRed,5);
             int xAbs = loc.X * 167;
             int yAbs = loc.Y * 167;
 
