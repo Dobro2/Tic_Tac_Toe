@@ -26,7 +26,6 @@ namespace Tic_Tac_Toe
         {
             return playersTurn;
         }
-
         public int getOwins()
         {
             return Owins;
@@ -92,7 +91,6 @@ namespace Tic_Tac_Toe
                         reset();
                         GFX.setUpCanvas();
                     }
-
                     playersTurn = O;
                 }
                 else
@@ -109,16 +107,11 @@ namespace Tic_Tac_Toe
                     playersTurn = X;
 
                 }
-
-
-
             }
         }
-
         public bool detectRow()
         {
             bool isWon = false;
-
 
             for (int x = 0; x < 3; x++)
             {
@@ -130,7 +123,6 @@ namespace Tic_Tac_Toe
                 {
                     return true;
                 }
-
                 switch (x)
                 {
                     case 0:
@@ -143,7 +135,6 @@ namespace Tic_Tac_Toe
                             return true;
                         }
                         break;
-
                     case 2:
                         if (holders[x, 0].getValue() == X && holders[x - 1, 1].getValue() == X && holders[x - 2, 2].getValue() == X)
                         {
@@ -155,7 +146,6 @@ namespace Tic_Tac_Toe
                         }
                         break;
                 }
-
             }
             for (int y = 0; y < 3; y++)
             {
@@ -169,9 +159,7 @@ namespace Tic_Tac_Toe
                 }
             }
             return isWon;
-
         }
-
         public void reset()
         {
             holders = new Holder[3, 3];
@@ -197,7 +185,6 @@ namespace Tic_Tac_Toe
             {
                 return value;
             }
-
         }
     }
 }

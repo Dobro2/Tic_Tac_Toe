@@ -11,13 +11,11 @@ namespace Tic_Tac_Toe
     class GFX
     {
         private static Graphics gObject;
-
         public GFX(Graphics g)
         {
             gObject = g;
             setUpCanvas();
         }
-
         public static void setUpCanvas()
         {
             Brush bg = new SolidBrush(Color.WhiteSmoke);
@@ -33,13 +31,11 @@ namespace Tic_Tac_Toe
 
             gObject.DrawLine(lines, new Point(0, 500), new Point(500, 500));
         }
-
         public static void drawX(Point loc)
         {
             Pen xPen = new Pen(Color.Lime, 5);
             int xAbs = loc.X * 167;
             int yAbs = loc.Y * 167;
-
             gObject.DrawLine(xPen, xAbs+10, yAbs+10, xAbs + 147, yAbs + 147);
             gObject.DrawLine(xPen, xAbs + 147, yAbs+10,xAbs+10, yAbs + 147);
         }
@@ -48,7 +44,6 @@ namespace Tic_Tac_Toe
             Pen oPen = new Pen(Color.MediumVioletRed,5);
             int xAbs = loc.X * 167;
             int yAbs = loc.Y * 167;
-
             gObject.DrawEllipse(oPen,xAbs +10,yAbs + 10, 147,147);
         }
     }

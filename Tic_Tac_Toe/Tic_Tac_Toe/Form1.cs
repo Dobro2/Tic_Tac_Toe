@@ -14,12 +14,10 @@ namespace Tic_Tac_Toe
     {
           GFX engine;
          Board theBoard;
-
         public Form1()
         {
             InitializeComponent();
         }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics toPass = panel1.CreateGraphics();
@@ -30,7 +28,6 @@ namespace Tic_Tac_Toe
 
             refreshLabel();
         }
-
         private void panel1_Click(object sender, EventArgs e)
         {
             Point mouse = Cursor.Position;
@@ -39,29 +36,23 @@ namespace Tic_Tac_Toe
 
             refreshLabel();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             theBoard.reset();
             GFX.setUpCanvas();
-
         }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void wButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void oButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Projekt gry w kółko i krzyżyk - ND i MN :)");
         }
-
         public void refreshLabel()
         {
             String newText = "Tura dla:";
@@ -76,7 +67,6 @@ namespace Tic_Tac_Toe
             newText += "\n";
             newText += "X wygrał:" + theBoard.getXwins() + " razy\n";
             newText += "O wygrał:" + theBoard.getOwins() + " razy";
-
             label1.Text = newText;
         }
     }
